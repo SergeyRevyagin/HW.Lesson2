@@ -70,20 +70,21 @@ public class Lesson2 {
     Создать квадратный двумерный целочисленный массив (количество строк и столбцов одинаковое),
     и с помощью цикла(-ов) заполнить его диагональные элементы единицами;
      */
-    public static int[][] Task4() {
-       int[][] arr=new int[3][3];//тут можно любое значение(5х5,7х7и т.п.). Либо задать агрумент заранее, а тут сделать каунтер или чтото типо того.
+   public static void Task4() {
+        int[][] arr = new int[5][5];//тут можно любое значение(5х5,7х7и т.п.). Либо задать агрумент заранее, а тут сделать каунтер или чтото типо того.
         for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr.length ; j++) {
-                arr[i][j]=0;
-                if(arr[i]==arr[j]||j+i== arr[j].length-1){
-                    arr[i][j]=1;
+            for (int j = 0; j < arr.length; j++) {
+                arr[i][j] = 0;
+                if (arr[i] == arr[j] || j + i == arr[j].length - 1) {
+                    arr[i][j] = 1;
                 }
-                System.out.print(arr[i][j]+" ");
+                System.out.print(arr[i][j] + " ");
 
             }
             System.out.println();
 
         }
+    }
 
 
     //endregion
@@ -139,8 +140,8 @@ public static void task5(int[] arr5) {
         System.out.println(Arrays.toString(Task2(arr2)));
         int[] arr3={1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
         System.out.println(Arrays.toString(Task3(arr3)));
-        int[][] arr4 = new int[5][5];
-        Task4(arr4);
+        
+        Task4();
         int[] arr5 = {2,3,0,-8,10,222,45,5};
         Task5(arr5);
         int[] arr6 ={1,2,3,6};
