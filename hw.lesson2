@@ -94,23 +94,15 @@ public class Lesson2 {
      ** Задать одномерный массив и найти в нем минимальный и максимальный элементы (без помощи интернета);
      */
 
-    public static int[] Task5(int[]arr5){
-        int min = 0;
-        int max = 0;
+public static void task5(int[] arr5) {
+        int min=0;
+        int max=0;
         Arrays.sort(arr5);
-        System.out.println(Arrays.toString(arr5));
-        for (int i = 0; i < arr5.length ; i++) {
-            min = arr5[0];
-            max = arr5[arr5.lenght-1];
-            }
-
-
-
-    }
-        System.out.println("min " + min +"\nmax " + max);
-
-
-        return arr5;
+        for (int i = 0; i < arr5.length; i++) {
+            min=arr5[0];
+            max= arr5[arr5.length-1];
+        }
+        System.out.format("Минимальное число %d \n Максимальное число %d",min,max);
     }
     //endregion
     
