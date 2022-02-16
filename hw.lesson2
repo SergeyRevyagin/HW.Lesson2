@@ -115,21 +115,47 @@ public static void task5(int[] arr5) {
      *  checkBalance([1, 1, 1, || 2, 1]) → true, граница показана символами ||,
      *  эти символы в массив не входят.
      */
-    public static boolean Task6(int[] arr6) {
-        int summLeft = 0;
-        int summRight = 0;
-        for (int i = 0; i < arr6.length; i++) {
-            summLeft = summLeft + arr6[i];
-            for (int j = arr6.length -1; j > arr6[i]; j--) {    // вроде логика верная, но не выдает тру
-                summRight = summRight + arr6[j];
-                if (summLeft == summRight) {
-                    return true;
-                }
+public static boolean Task6(int[] arr) {
+        int summ = 0;
+        for (int j : arr) {
+            summ = summ + j;
+        }
+        if (summ % 2 != 0) {
+            System.out.println("false");
+            return false;
+        }
+        summ /= 2;
+        int left = 0;
+        for (int i : arr) {
+            left += i;
+            if (left == summ) {
+                System.out.println("true");
+                return true;
             }
-        }return false;
+            if (left > summ) {
+                System.out.println("false");
+                return false;
+            }
+        }
+
+        return false;
     }
 
     //endregion
+    
+    static void shift(int[] arr, int n) {
+        int shift = (arr.length + n % arr.length) % arr.length; // Вычисляем реальное смещение
+        for (int i = 0; i < shift; i++) { // Выполним цикл смещения по одному элементу в соответствии с значенимем реального
+            // смещения (переменная shift)
+            int temp = arr[arr.length - 1]; // Сохраняем значение ПОСЛЕДНЕГО элемента массива
+            for (int j = arr.length - 1; j > 0 ; j--) { // Пройдем по всем элементам массива с конца в начало, заменим
+                // значение текущего элемента массива значением элемента, предшествующего текущему
+                arr[j] = arr[j - 1];
+            }
+            arr[0] = temp; // А как быть с самым первым элементом? Вот как раз из переменной temp мы и получим недостающее значение
+        }
+        System.out.println(Arrays.toString(arr));
+    }
 
 
 
@@ -147,7 +173,7 @@ public static void task5(int[] arr5) {
         int[] arr6 ={1,2,3,6};
         Task6(arr6);
         int[] arr7 ={1,2,3,4};
-        Task7(arr7,2);
+        
 
 
 
